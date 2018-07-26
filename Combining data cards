@@ -1,0 +1,18 @@
+//From Ulascan's package
+
+
+1]
+combineCards.py txt1 txt2 ... > final.txt
+combineCards.py hzz4l_Prop_All_Onshell_13TeV_2016.txt hzz4l_Prop_All_Onshell_13TeV_2017.txt > hzz4l_Prop_All_Onshell_13TeV.txt
+
+2]
+ . buildCards.sh datacard.txt name_of_final_root_file options
+ . buildCards.sh hzz4l_Prop_All_Onshell_13TeV.txt hzz4l_Prop_All_Onshell_13TeV.root "13" SM
+
+3]
+. submitScan1D.sh name_of_output_folder name_of_final_root_file options
+. submitScan1D.sh MHFloated_GGsmfai1Fixed_13TeV $wsname MH 51 124.5 126.5 0 51
+
+4]
+root -b -l -q "plotScan.C(\"name_of_output_folder\",\"MH\",\"deltaNLL\",\"SM\")"
+root -b -l -q "plotScan.C(\"$dirname\",\"MH\",\"deltaNLL\",\"SM\")"
